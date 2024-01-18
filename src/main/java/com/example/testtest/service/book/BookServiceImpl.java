@@ -1,16 +1,17 @@
-package com.example.testtest.service;
+package com.example.testtest.service.book;
 
 import com.example.testtest.models.Book;
 import com.example.testtest.models.BookCategory;
 import com.example.testtest.models.Genre;
 import com.example.testtest.repository.BookRepository;
+import com.example.testtest.service.book.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {

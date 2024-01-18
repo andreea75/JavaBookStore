@@ -1,14 +1,15 @@
-package com.example.testtest.service;
+package com.example.testtest.service.publisher;
 
 import com.example.testtest.models.Publisher;
 import com.example.testtest.repository.PublisherRepository;
+import com.example.testtest.service.publisher.PublisherService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PublisherServiceImpl implements PublisherService{
+public class PublisherServiceImpl implements PublisherService {
     private final PublisherRepository publisherRepository;
 
     public PublisherServiceImpl(PublisherRepository publisherRepository) {

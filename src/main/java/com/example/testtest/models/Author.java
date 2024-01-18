@@ -1,5 +1,6 @@
 package com.example.testtest.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class Author {
     private String authorName;
 
     @Column(name = "dateOfBirth")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     @Column(name = "nationality")

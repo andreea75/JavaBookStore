@@ -1,4 +1,4 @@
-package com.example.testtest.service;
+package com.example.testtest.service.shop;
 
 import com.example.testtest.models.Book;
 import jakarta.transaction.Transactional;

@@ -1,12 +1,13 @@
-package com.example.testtest.service;
+package com.example.testtest.service.book;
 
 import com.example.testtest.exceptions.BookDetailsNotFoundException;
 import com.example.testtest.models.BookDetails;
 import com.example.testtest.repository.BookDetailsRepository;
+import com.example.testtest.service.book.BookDetailsService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookDetailsServiceImpl implements BookDetailsService{
+public class BookDetailsServiceImpl implements BookDetailsService {
     private final BookDetailsRepository bookDetailsRepository;
 
     public BookDetailsServiceImpl(BookDetailsRepository bookDetailsRepository) {

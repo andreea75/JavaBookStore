@@ -1,4 +1,4 @@
-package com.example.testtest.service;
+package com.example.testtest.service.shop;
 
 import com.example.testtest.exceptions.BookNotFoundException;
 import com.example.testtest.exceptions.NotEnoughStockException;
@@ -6,10 +6,11 @@ import com.example.testtest.models.Book;
 import com.example.testtest.models.BookDetails;
 import com.example.testtest.repository.BookDetailsRepository;
 import com.example.testtest.repository.BookRepository;
+import com.example.testtest.service.shop.ShopService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ShopServiceImpl implements ShopService{
+public class ShopServiceImpl implements ShopService {
     public final BookRepository bookRepository;
     public final BookDetailsRepository bookDetailsRepository;
 

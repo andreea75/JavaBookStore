@@ -1,7 +1,7 @@
 package com.example.testtest.controller;
 
 import com.example.testtest.models.Author;
-import com.example.testtest.service.AuthorServiceImpl;
+import com.example.testtest.service.author.AuthorServiceImpl;
 import com.example.testtest.shared.Messages;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

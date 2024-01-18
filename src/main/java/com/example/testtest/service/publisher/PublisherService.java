@@ -1,4 +1,4 @@
-package com.example.testtest.service;
+package com.example.testtest.service.publisher;
 
 import com.example.testtest.models.Publisher;
 

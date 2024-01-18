@@ -1,8 +1,7 @@
 package com.example.testtest.controller;
 
 import com.example.testtest.models.BookDetails;
-import com.example.testtest.service.BookDetailsService;
-import com.example.testtest.service.BookDetailsServiceImpl;
+import com.example.testtest.service.book.BookDetailsServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

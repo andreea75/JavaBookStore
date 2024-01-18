@@ -3,7 +3,7 @@ package com.example.testtest.controller;
 import com.example.testtest.models.Book;
 import com.example.testtest.models.BookCategory;
 import com.example.testtest.models.Genre;
-import com.example.testtest.service.BookServiceImpl;
+import com.example.testtest.service.book.BookServiceImpl;
 import com.example.testtest.shared.Messages;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

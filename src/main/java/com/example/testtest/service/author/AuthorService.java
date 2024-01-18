@@ -1,4 +1,4 @@
-package com.example.testtest.service;
+package com.example.testtest.service.author;
 
 import com.example.testtest.models.Author;
 import org.springframework.stereotype.Service;

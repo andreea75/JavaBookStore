@@ -1,6 +1,6 @@
 package com.example.testtest.controller;
 
-import com.example.testtest.service.ShopServiceImpl;
+import com.example.testtest.service.shop.ShopServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

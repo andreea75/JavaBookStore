@@ -1,7 +1,8 @@
-package com.example.testtest.service;
+package com.example.testtest.service.book;
 
 import com.example.testtest.models.BookCategory;
 import com.example.testtest.repository.BookCategoryRepository;
+import com.example.testtest.service.book.BookCategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

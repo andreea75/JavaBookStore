@@ -1,7 +1,7 @@
 package com.example.testtest.controller;
 
 import com.example.testtest.models.Publisher;
-import com.example.testtest.service.PublisherServiceImpl;
+import com.example.testtest.service.publisher.PublisherServiceImpl;
 import com.example.testtest.shared.Messages;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

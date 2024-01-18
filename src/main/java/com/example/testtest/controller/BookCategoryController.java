@@ -1,7 +1,7 @@
 package com.example.testtest.controller;
 
 import com.example.testtest.models.BookCategory;
-import com.example.testtest.service.BookCategoryServiceImpl;
+import com.example.testtest.service.book.BookCategoryServiceImpl;
 import com.example.testtest.shared.Messages;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
