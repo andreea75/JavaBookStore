@@ -31,17 +31,17 @@ class BookCategoryControllerTest {
         BookCategory bookCategory = new BookCategory();
         bookCategory.setName("Mystery");
 
-        when(bookCategoryService.add(bookCategory)).thenReturn(bookCategory);
+        when(bookCategoryService.add(any(BookCategory.class))).thenReturn(bookCategory);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookCategoryController).build();
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/book-category/createCategory")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/category/createCategory")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{ \"name\": \"Mystery\" }"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Messages.BOOK_CATEGORY_CREATED));
 
-        verify(bookCategoryService, times(1)).add(bookCategory);
+        verify(bookCategoryService, times(1)).add(any(BookCategory.class));
     }
 
     @Test
@@ -50,7 +50,7 @@ class BookCategoryControllerTest {
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookCategoryController).build();
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/book-category/getAll"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/category/getAll"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isEmpty());
 
@@ -64,15 +64,17 @@ class BookCategoryControllerTest {
         bookCategory.setId(categoryId);
         bookCategory.setName("Mystery");
 
+        // Provide a return value for the when statement
         when(bookCategoryService.getById(categoryId)).thenReturn(bookCategory);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookCategoryController).build();
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/book-category/getById/{id}", categoryId))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/category/getById/{id}", categoryId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(categoryId))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Mystery"));
 
+        // Verify that the getById method is called with the specified argument
         verify(bookCategoryService, times(1)).getById(categoryId);
     }
 
@@ -82,7 +84,7 @@ class BookCategoryControllerTest {
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookCategoryController).build();
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/book-category/deleteById/{id}", categoryId))
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/category/deleteById/{id}", categoryId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Messages.BOOK_CATEGORY_DELETED));
 

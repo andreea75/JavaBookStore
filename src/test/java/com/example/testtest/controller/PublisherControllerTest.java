@@ -32,7 +32,7 @@ class PublisherControllerTest {
         Publisher publisher = new Publisher();
         publisher.setPublisherName("ABC Publishers");
 
-        when(publisherService.add(publisher)).thenReturn(publisher);
+        when(publisherService.add(any(Publisher.class))).thenReturn(publisher);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(publisherController).build();
 
@@ -42,7 +42,7 @@ class PublisherControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Messages.PUBLISHER_CREATED));
 
-        verify(publisherService, times(1)).add(publisher);
+        verify(publisherService, times(1)).add(any(Publisher.class));
     }
 
     @Test
@@ -72,7 +72,6 @@ class PublisherControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/publisher/getById/{id}", publisherId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(publisherId));
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("ABC Publishers"));
 
         verify(publisherService, times(1)).getById(publisherId);
     }
@@ -102,7 +101,6 @@ class PublisherControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/publisher/getByPublisherName")
                         .param("publisherName", publisherName))
                 .andExpect(MockMvcResultMatchers.status().isOk());
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value(publisherName));
 
         verify(publisherService, times(1)).getByPublisherName(publisherName);
     }

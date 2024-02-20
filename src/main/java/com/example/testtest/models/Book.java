@@ -1,6 +1,7 @@
 package com.example.testtest.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -50,6 +51,6 @@ public class Book {
     @JoinColumn(name = "category_id")
     private BookCategory category;
 
-    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
     private BookDetails details;
 }

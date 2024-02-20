@@ -1,6 +1,6 @@
 package com.example.testtest.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @ToString

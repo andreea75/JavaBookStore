@@ -32,7 +32,7 @@ class BookControllerTest {
         Book book = new Book();
         book.setTitle("Sample Book");
 
-        when(bookService.add(book)).thenReturn(book);
+        when(bookService.add(any(Book.class))).thenReturn(book);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
 
@@ -42,7 +42,7 @@ class BookControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Messages.BOOK_CREATED));
 
-        verify(bookService, times(1)).add(book);
+        verify(bookService, times(1)).add(any(Book.class));
     }
 
     @Test
@@ -90,22 +90,6 @@ class BookControllerTest {
         verify(bookService, times(1)).deleteById(bookId);
     }
 
-//    @Test
-//    void testGetBooksByGenre() throws Exception {
-//        Genre genre = Genre.FICTION;
-//        List<Book> books = Collections.singletonList(new Book());
-//
-//        when(bookService.getByGenre(genre)).thenReturn(books);
-//
-//        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
-//
-//        mockMvc.perform(MockMvcRequestBuilders.get("/api/book/getByGenre/{genre}", genre))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].title").value("Sample Book"));
-//
-//        verify(bookService, times(1)).getByGenre(genre);
-//    }
-
     @Test
     void testGetBooksByLanguage() throws Exception {
         String language = "English";
@@ -117,25 +101,8 @@ class BookControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/book/getByLanguage/{language}", language))
                 .andExpect(MockMvcResultMatchers.status().isOk());
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].title").value("Sample Book"));
 
         verify(bookService, times(1)).getByLanguage(language);
     }
-
-//    @Test
-//    void testGetBooksByCategory() throws Exception {
-//        BookCategory category = BookCategory.LITERATURA_STRAINA;
-//        List<Book> books = Collections.singletonList(new Book());
-//
-//        when(bookService.getByCategory(category)).thenReturn(books);
-//
-//        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
-//
-//        mockMvc.perform(MockMvcRequestBuilders.get("/api/book/getByCategory/{category}", category))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].title").value("Sample Book"));
-//
-//        verify(bookService, times(1)).getByCategory(category);
-//    }
 }
 

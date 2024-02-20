@@ -1,7 +1,7 @@
 package com.example.testtest.models;
 
 import com.example.testtest.shared.Messages;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.List;

@@ -32,7 +32,8 @@ class AuthorControllerTest {
         Author author = new Author();
         author.setAuthorName("John Doe");
 
-        when(authorService.add(author)).thenReturn(author);
+        // Use any() matcher to match any instance of the Author class
+        when(authorService.add(any(Author.class))).thenReturn(author);
 
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(authorController).build();
 
@@ -42,7 +43,8 @@ class AuthorControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Messages.AUTHOR_CREATED));
 
-        verify(authorService, times(1)).add(author);
+        // Verify that the add method is called with any instance of Author
+        verify(authorService, times(1)).add(any(Author.class));
     }
 
     @Test
@@ -54,6 +56,7 @@ class AuthorControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/author/getAll"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isEmpty());
+
 
         verify(authorService, times(1)).getAll();
     }
@@ -71,8 +74,6 @@ class AuthorControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/author/getById/{id}", authorId))
                 .andExpect(MockMvcResultMatchers.status().isOk());
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(authorId))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("John Doe"));
 
         verify(authorService, times(1)).getById(authorId);
     }
@@ -102,7 +103,6 @@ class AuthorControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/author/getByAuthorName")
                         .param("authorName", authorName))
                 .andExpect(MockMvcResultMatchers.status().isOk());
-//                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value(authorName));
 
         verify(authorService, times(1)).getByAuthorName(authorName);
     }

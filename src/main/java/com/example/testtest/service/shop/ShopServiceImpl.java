@@ -25,8 +25,7 @@ public class ShopServiceImpl implements ShopService {
         Book book = bookRepository.findById(bookId).orElseThrow(BookNotFoundException::new);
 
         // check if book is in stock and if no exemplars exists
-        if(book.getDetails().getQuantity() == 0 ||
-                book.getDetails().getQuantity() < Integer.valueOf(no)) {
+        if(book.getDetails().getQuantity() == 0 || book.getDetails().getQuantity() < Integer.valueOf(no)) {
             throw new NotEnoughStockException();
         }
 
